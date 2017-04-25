@@ -1,26 +1,24 @@
 
-
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 // Requirements
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 
-const rule = require('../../../lib/rules/no-invalid-css-property');
+const rule = require('../../../lib/rules/no-invalid-css-property')
 
-const RuleTester = require('eslint').RuleTester;
+const RuleTester = require('eslint').RuleTester
 
 RuleTester.setDefaultConfig({
   parserOptions: {
-    ecmaVersion: 6,
-  },
-});
+    ecmaVersion: 6
+  }
+})
 
-
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 // Tests
-//------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------
 
-const errors = [{ message: 'Invalid CSS property' }];
-const ruleTester = new RuleTester();
+const errors = [{ message: 'Invalid CSS property' }]
+const ruleTester = new RuleTester()
 ruleTester.run('no-invalid-css-property', rule, {
   valid: [
     // test that if there is no valid CSS property as keys, object should not
@@ -34,7 +32,7 @@ ruleTester.run('no-invalid-css-property', rule, {
     "var css = { ':hover': { color: 'blue' } }",
 
     // test for allowing special Glamor CSS object keys
-    "var css = { 'html.ie9 & span.title': { fontWeight: 'bold' } }",
+    "var css = { 'html.ie9 & span.title': { fontWeight: 'bold' } }"
   ],
   invalid: [
     // should find a lint error when there is at least one valid CSS property
@@ -44,20 +42,20 @@ ruleTester.run('no-invalid-css-property', rule, {
     // should find a lint error for invalid Pseudo selectors
     {
       errors,
-      code: "var css = { color: 'blue', ':after': { position: 'relative' }}",
+      code: "var css = { color: 'blue', ':after': { position: 'relative' }}"
     },
 
     // should find a lint error for nested invalid CSS properties
     {
       errors,
-      code: "var css = { color: 'blue', '::after': { diamond: 'relative' }}",
+      code: "var css = { color: 'blue', '::after': { diamond: 'relative' }}"
     },
 
     // should find a lint error when the glamor special use case that supports
     // multiple selectors is missing &, the target selector
     {
       errors,
-      code: "var css = { 'html.ie9 span.title': { fontWeight: 'bold' } }",
+      code: "var css = { 'html.ie9 span.title': { fontWeight: 'bold' } }"
     }
-  ],
-});
+  ]
+})

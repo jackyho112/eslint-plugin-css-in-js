@@ -2,7 +2,10 @@
   "parserOptions": {
     "ecmaVersion": 6
   },
-  "extends": "eslint:recommended",
+  "extends": [
+    "eslint:recommended",
+    "standard"
+  ],
   "rules": {
     "no-undef": "off"
   }
