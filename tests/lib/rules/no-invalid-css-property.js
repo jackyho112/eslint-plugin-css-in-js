@@ -58,6 +58,6 @@ ruleTester.run('no-invalid-css-property', rule, {
     {
       errors,
       code: "var css = { 'html.ie9 span.title': { fontWeight: 'bold' } }",
-    },
+    }
   ],
 });

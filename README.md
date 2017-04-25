@@ -1,4 +1,4 @@
-# eslint-plugin-685930
+# eslint-plugin-css-in-js
 
 For all your CSS JS object linting need
 
@@ -10,22 +10,22 @@ You'll first need to install [ESLint](http://eslint.org):
 $ npm i eslint --save-dev
 ```
 
-Next, install `eslint-plugin-685930`:
+Next, install `eslint-plugin-css-in-js`:
 
 ```
-$ npm install eslint-plugin-685930 --save-dev
+$ npm install eslint-plugin-css-in-js --save-dev
 ```
 
-**Note:** If you installed ESLint globally (using the `-g` flag) then you must also install `eslint-plugin-685930` globally.
+**Note:** If you installed ESLint globally (using the `-g` flag) then you must also install `eslint-plugin-css-in-js` globally.
 
 ## Usage
 
-Add `685930` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
+Add `css-in-js` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
 
 ```json
 {
     "plugins": [
-        "685930"
+        "css-in-js"
     ]
 }
 ```
@@ -36,7 +36,7 @@ Then configure the rules you want to use under the rules section.
 ```json
 {
     "rules": {
-        "685930/rule-name": 2
+        "css-in-js/rule-name": 2
     }
 }
 ```
@@ -44,8 +44,3 @@ Then configure the rules you want to use under the rules section.
 ## Supported Rules
 
 * Fill in provided rules here
-
-
-
-
-
