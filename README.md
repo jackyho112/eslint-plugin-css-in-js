@@ -1,3 +1,7 @@
+[![Build Status][build-badge]][build-page]
+[![version][version-badge]][package]
+[![Coverage Status][coverage-badge]][coverage-badge]
+
 # eslint-plugin-css-in-js
 
 For all your CSS JS object linting need! Not really,
@@ -58,3 +62,31 @@ Or configure the rules you want to use under the rules section.
 | Rule | Description |
 | :--- | :---------- |
 | [no-invalid-properties](docs/rules/no-invalid-css-property.md) | Disallow invalid CSS properties |
+
+## Contributing
+
+This plugin is pretty lacking right now. It's open to new rule suggestions and
+PRs. For your PRs, don't forget to commit by
+
+```javascript
+npm run commit
+```
+
+and ensure 100% test coverage.
+
+Currently, I am looking into validating CSS values using
+https://github.com/mdn/data and using the rules in
+https://github.com/stylelint/stylelint.
+Also open to suggestions and PRs in these issues.
+
+## License
+
+[MIT][license] © Jacky Ho
+
+<!-- Definition -->
+[license]: LICENSE
+[build-page]: https://travis-ci.org/jackyho112/eslint-plugin-css-in-js.svg
+[build-badge]: https://img.shields.io/travis/jackyho112/eslint-plugin-css-in-js.svg
+[version-badge]: https://img.shields.io/npm/v/eslint-plugin-css-in-js.svg?style=flat-square
+[package]: https://www.npmjs.com/package/eslint-plugin-css-in-js
+[coverage-badge]:https://coveralls.io/repos/jackyho112/eslint-plugin-css-in-js/badge.svg?branch=master

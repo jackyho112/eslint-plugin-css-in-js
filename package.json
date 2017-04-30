@@ -25,7 +25,8 @@
     "validate": "npm-run-all --parallel test lint",
     "release": "semantic-release pre && npm publish && semantic-release post",
     "report-coverage": "cat ./coverage/lcov.info | codecov",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
   },
   "dependencies": {
     "lodash": "4.17.4",
@@ -55,7 +56,8 @@
     "cz-conventional-changelog": "2.0.0",
     "ghooks": "1.3.2",
     "validate-commit-msg": "2.12.1",
-    "babel-register": "6.11.6"
+    "babel-register": "6.11.6",
+    "coveralls": "2.13.1"
   },
   "nyc": {
     "all": true,
