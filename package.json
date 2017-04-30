@@ -11,11 +11,13 @@
   "main": "lib/index.js",
   "scripts": {
     "test": "mocha tests --recursive",
-    "lint": "./node_modules/.bin/eslint ."
+    "lint": "./node_modules/.bin/eslint .",
+    "debug-test": "mocha debug tests/lib/rules/no-invalid-css-property.js -R spec"
   },
   "dependencies": {
     "lodash": "4.17.4",
-    "mdn-data": "git+https://github.com/mdn/data.git"
+    "mdn-data": "git+https://github.com/mdn/data.git",
+    "stylelint": "^7.10.1"
   },
   "devDependencies": {
     "css-what": "2.1.0",
@@ -31,7 +33,7 @@
     "eslint-plugin-standard": "3.0.0"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": "^7.8.0"
   },
   "license": "ISC"
 }
