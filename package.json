@@ -1,17 +1,31 @@
 {
   "name": "eslint-plugin-css-in-js",
-  "version": "0.0.0",
+  "version": "0.0.0-development",
   "description": "For all your CSS JS object linting need",
+  "main": "lib",
   "keywords": [
     "eslint",
     "eslintplugin",
     "eslint-plugin"
   ],
-  "author": "eslint-plugin-css-in-js",
-  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jackyho112/eslint-plugin-css-in-js"
+  },
+  "author": "Jacky Ho",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jackyho112/eslint-plugin-css-in-js/issues"
+  },
+  "homepage": "https://github.com/jackyho112/eslint-plugin-css-in-js#readme",
   "scripts": {
-    "test": "mocha tests --recursive",
-    "lint": "./node_modules/.bin/eslint ."
+    "test": "cross-env NODE_ENV=test nyc mocha tests --recursive",
+    "lint": "./node_modules/.bin/eslint .",
+    "commit": "git-cz",
+    "validate": "npm-run-all --parallel test lint",
+    "release": "semantic-release pre && npm publish && semantic-release post",
+    "report-coverage": "cat ./coverage/lcov.info | codecov",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "dependencies": {
     "lodash": "4.17.4",
@@ -28,10 +42,67 @@
     "eslint-config-standard": "10.2.1",
     "eslint-plugin-node": "4.2.2",
     "eslint-plugin-promise": "3.5.0",
-    "eslint-plugin-standard": "3.0.0"
+    "eslint-plugin-standard": "3.0.0",
+    "babel-plugin-istanbul": "1.0.3",
+    "babel-preset-es2015": "6.9.0",
+    "cross-env": "2.0.0",
+    "npm-run-all": "2.3.0",
+    "nyc": "7.1.0",
+    "semantic-release": "^6.3.2",
+    "@bubltechnology/customizable-commit-analyzer": "1.0.2-0",
+    "codecov": "2.1.0",
+    "commitizen": "2.9.6",
+    "cz-conventional-changelog": "2.0.0",
+    "ghooks": "1.3.2",
+    "validate-commit-msg": "2.12.1",
+    "babel-register": "6.11.6"
+  },
+  "nyc": {
+    "all": true,
+    "check-coverage": true,
+    "branches": 100,
+    "function": 100,
+    "lines": 100,
+    "statements": 100,
+    "reporter": [
+      "text",
+      "lcov"
+    ],
+    "include": [
+      "lib",
+      "tests"
+    ],
+    "sourceMap": false,
+    "instrument": false,
+    "require": [
+      "babel-register"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    },
+    "ghooks": {
+      "pre-commit": "npm run validate",
+      "commit-msg": "validate-commit-msg"
+    }
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ],
+    "env": {
+      "test": {
+        "plugins": [
+          "istanbul"
+        ]
+      }
+    }
+  },
+  "release": {
+    "analyzeCommits": "@bubltechnology/customizable-commit-analyzer"
   },
   "engines": {
     "node": ">=0.10.0"
-  },
-  "license": "ISC"
+  }
 }

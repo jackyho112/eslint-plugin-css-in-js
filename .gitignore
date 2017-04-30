@@ -1,3 +1,4 @@
 node_modules/
 npm-debug.log
-lint-test.js
+.nyc_output
+coverage
