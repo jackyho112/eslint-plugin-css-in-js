@@ -1,17 +1,41 @@
-# No invalid css property allowed (no-invalid-css-property)
-
-Please describe the origin of the rule here.
-
+# Disallow invalid css properties (no-invalid-css-property)
 
 ## Rule Details
 
-This rule aims to...
+This rule aims to prevent the use of invalid CSS properties in a CSS object.
+An object is identified to be a CSS object if there is at least one valid
+CSS properties in it.
+
+It also supports special cases in https://github.com/threepointone/glamor and https://github.com/jackyho112/glamorous.
+
+For example,
+
+```js
+{
+  "name": "John",
+  "dog": "none"
+}
+```
+will not be identified as a CSS object
+
+```js
+{
+  "height": "80px",
+  "cat": 20
+}
+```
+will and will raise an error
+
+Please refer to https://github.com/mdn/data/blob/master/css/properties.json for
+all the valid CSS properties
 
 Examples of **incorrect** code for this rule:
 
 ```js
-
-// fill me in
+{
+  "width": "100%",
+  "rock": "solid"
+}
 
 ```
 
@@ -19,18 +43,9 @@ Examples of **correct** code for this rule:
 
 ```js
 
-// fill me in
+{
+  "position": "relative",
+  "align-content": "flex-start"
+}
 
 ```
-
-### Options
-
-If there are any options, describe them here. Otherwise, delete this section.
-
-## When Not To Use It
-
-Give a short description of when it would be appropriate to turn off this rule.
-
-## Further Reading
-
-If there are other links that describe the issue this rule addresses, please include them here in a bulleted list.

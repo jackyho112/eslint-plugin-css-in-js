@@ -1,6 +1,8 @@
 # eslint-plugin-css-in-js
 
-For all your CSS JS object linting need
+For all your CSS JS object linting need! Not really,
+it's just linting your CSS properties now for objects that
+have at least one valid CSS property.
 
 ## Installation
 
@@ -30,8 +32,18 @@ Add `css-in-js` to the plugins section of your `.eslintrc` configuration file. Y
 }
 ```
 
+or enable all the rules
 
-Then configure the rules you want to use under the rules section.
+```json
+{
+    "plugins": [
+      "css-in-js:recommended"
+    ]
+}
+```
+
+
+Or configure the rules you want to use under the rules section.
 
 ```json
 {
@@ -43,4 +55,6 @@ Then configure the rules you want to use under the rules section.
 
 ## Supported Rules
 
-* Fill in provided rules here
+| Rule | Description |
+| :--- | :---------- |
+| [no-invalid-properties](docs/rules/no-invalid-css-property.md) | Disallow invalid CSS properties |
