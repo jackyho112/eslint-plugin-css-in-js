@@ -29,7 +29,7 @@
     "coveralls": "cat ./coverage/lcov.info | node node_modules/.bin/coveralls"
   },
   "dependencies": {
-    "lodash": "4.17.4",
+    "lodash": "^4.17.15",
     "mdn-data": "git+https://github.com/mdn/data.git"
   },
   "devDependencies": {
